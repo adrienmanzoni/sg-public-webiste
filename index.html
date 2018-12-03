@@ -4991,7 +4991,8 @@
   function buildBanners(banners) {
     banners.forEach(function(banner) {
       var html = mgnBannerTemplate({
-        image: getMagnoliaValue(banner, "image"),
+        image: "https://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com/dam/" + getMagnoliaValue(banner,
+          "image"),
         link: getMagnoliaValue(banner, "link")
       });
 
@@ -5002,7 +5003,7 @@
   function buildTeasers(teasers) {
     teasers.forEach(function(teaser) {
       var html = mgnTeaserTemplate({
-        image: getMagnoliaValue(teaser, "image"),
+        image: "https://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com/dam/" + getMagnoliaValue(teaser, "image"),
         link: getMagnoliaValue(teaser, "link"),
         text: getMagnoliaValue(teaser, "text"),
         from: getMagnoliaValue(teaser, "dateFrom"),
