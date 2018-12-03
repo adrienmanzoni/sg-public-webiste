@@ -4993,7 +4993,11 @@
     function(
     data
   ) {
-    console.log(JSON.stringify(data,null,2));
+    if (data.nodes!=null) {
+      data.nodes.forEach(function(element) {
+        console.log(JSON.stringify(element,null,2));
+      });
+    }
   });
 
 </script>
