@@ -4957,5 +4957,45 @@
   }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+
+<!--Magnolia-->
+<script id="magnolia-banner" type="text/x-handlebars-template">
+  <div class="four_text_top_item ">
+    <img src="{{image}}" class=" no-text ">
+  </div>
+</script>
+
+<script id="magnolia-teaser" type="text/x-handlebars-template">
+  <div class="four_text_top_item top-image">
+    <img src="{{image}}" class="">
+    <div class="ftt_text " style="background-color:#fff; color:#000;">
+      <div class="fft_t_2">
+        <div style="text-align:center; font-weight: bold;">{{text}}</div>
+      </div>
+      <div class="fft_t_3">
+        <div style="text-align:center;">From {{from}} to {{to}}</div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+  //Banner
+  var mgnBannerSource   = document.getElementById("magnolia-banner").innerHTML;
+  var mgnBannerTemplate = Handlebars.compile(mgnBannerSource);
+  //Teaser
+  var mgnTeaserSource   = document.getElementById("magnolia-teaser").innerHTML;
+  var mgnTeaserTemplate = Handlebars.compile(mgnTeaserSource);
+
+  //Load page configuration
+  $.getJSON( "http://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com:8080/.rest/nodes/v1/website/Home", function(
+    data
+  ) {
+    alert(data);
+  });
+
+</script>
+
 </html>
 
