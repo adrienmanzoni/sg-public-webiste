@@ -4768,31 +4768,33 @@
   function buildBanners(banners) {
     var magnoliaBannersZone = $("#magnoliaBannersZone");
 
+    var html = "";
     banners.forEach(function(banner) {
-      var html = mgnBannerTemplate({
+      html += mgnBannerTemplate({
         image: "https://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com/dam/" + getMagnoliaValue(banner,
           "image"),
         link: getMagnoliaValue(banner, "link")
       });
-
-      magnoliaBannersZone.html(html);
     });
+
+    magnoliaBannersZone.html(html);
   }
 
   function buildTeasers(teasers) {
     var magnoliaTeasersZone = $("#magnoliaTeasersZone");
 
+    var html = "";
     teasers.forEach(function(teaser) {
-      var html = mgnTeaserTemplate({
+      html += mgnTeaserTemplate({
         image: "https://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com/dam/" + getMagnoliaValue(teaser, "image"),
         link: getMagnoliaValue(teaser, "link"),
         text: getMagnoliaValue(teaser, "text"),
         from: getMagnoliaValue(teaser, "dateFrom"),
         to: getMagnoliaValue(teaser, "dateTo")
       });
-
-      magnoliaTeasersZone.html(html);
     });
+
+    magnoliaTeasersZone.html(html);
   }
 
   function getMagnoliaValue(element, attributeName) {
