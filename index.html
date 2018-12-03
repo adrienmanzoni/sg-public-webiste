@@ -4989,13 +4989,13 @@
   var mgnTeaserTemplate = Handlebars.compile(mgnTeaserSource);
 
   function buildBanners(banners) {
-    data.nodes.forEach(function(banner) {
+    banners.forEach(function(banner) {
       console.log(JSON.stringify(banner,null,2));
     });
   }
 
   function buildTeasers(teasers) {
-    data.nodes.forEach(function(teaser) {
+    teasers.forEach(function(teaser) {
       console.log(JSON.stringify(teaser,null,2));
     });
   }
