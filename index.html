@@ -4988,6 +4988,18 @@
   var mgnTeaserSource   = document.getElementById("magnolia-teaser").innerHTML;
   var mgnTeaserTemplate = Handlebars.compile(mgnTeaserSource);
 
+  function buildBanners(banners) {
+    data.nodes.forEach(function(banner) {
+      console.log(JSON.stringify(banner,null,2));
+    });
+  }
+
+  function buildTeasers(teasers) {
+    data.nodes.forEach(function(teaser) {
+      console.log(JSON.stringify(teaser,null,2));
+    });
+  }
+
   //Load page configuration
   $.getJSON( "https://ec2-18-196-17-23.eu-central-1.compute.amazonaws.com/.rest/nodes/v1/website/Home?depth=5",
     function(
@@ -4995,7 +5007,11 @@
   ) {
     if (data.nodes!=null) {
       data.nodes.forEach(function(element) {
-        console.log(JSON.stringify(element,null,2));
+        if (element.name==="banners") {
+          buildBanners(element.nodes);
+        } else if (element.name==="teasers") {
+          buildTeasers(element.nodes);
+        }
       });
     }
   });
