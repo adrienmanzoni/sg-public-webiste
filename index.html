@@ -4990,14 +4990,36 @@
 
   function buildBanners(banners) {
     banners.forEach(function(banner) {
-      console.log(JSON.stringify(banner,null,2));
+      console.log(getMagnoliaValue(banner, "image"));
+      console.log(getMagnoliaValue(banner, "link"));
     });
   }
 
   function buildTeasers(teasers) {
     teasers.forEach(function(teaser) {
-      console.log(JSON.stringify(teaser,null,2));
+      console.log(getMagnoliaValue(teaser, "image"));
+      console.log(getMagnoliaValue(teaser, "link"));
+      console.log(getMagnoliaValue(teaser, "text"));
+      console.log(getMagnoliaValue(teaser, "dateFrom"));
+      console.log(getMagnoliaValue(teaser, "dateTo"));
     });
+  }
+
+  function getMagnoliaValue(element, attributeName) {
+    var result = "";
+
+    if (element.properties!=null) {
+      var index = 0;
+      while (index<element.properties.length && result==="") {
+        if (element.properties[index].name===attributeName) {
+          result = element.properties[index].values[0];
+        }
+
+        index++;
+      }
+    }
+
+    return result;
   }
 
   //Load page configuration
