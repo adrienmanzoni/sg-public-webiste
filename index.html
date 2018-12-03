@@ -4983,7 +4983,7 @@
 <script type="text/javascript">
   //Banner
   var mgnBannerSource   = document.getElementById("magnolia-banner").innerHTML;
-  var  = Handlebars.compile(mgnBannerSource);
+  var mgnBannerTemplate = Handlebars.compile(mgnBannerSource);
   //Teaser
   var mgnTeaserSource   = document.getElementById("magnolia-teaser").innerHTML;
   var mgnTeaserTemplate = Handlebars.compile(mgnTeaserSource);
@@ -5001,7 +5001,7 @@
 
   function buildTeasers(teasers) {
     teasers.forEach(function(teaser) {
-      var html = mgnBannerTemplate({
+      var html = mgnTeaserTemplate({
         image: getMagnoliaValue(teaser, "image"),
         link: getMagnoliaValue(teaser, "link"),
         text: getMagnoliaValue(teaser, "text"),
